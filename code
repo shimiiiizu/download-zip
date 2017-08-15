@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Aug 15 20:34:27 2017
+
+@author: shimizu
+for python 2.7
+"""
+import urllib
+import urllib2
+import urlparse
+
+API = "http://api.aoikujira.com/zip/xml/get.php"
+
+values = {
+    'fmt': 'xml',
+    'zn': '1500042'
+}
+params = urllib.urlencode(values)
+
+url = API + "?" + params
+print("url=",url)
+
+data = urllib2.urlopen(url).read()
+text = data.decode("utf-8")
+print(text)
